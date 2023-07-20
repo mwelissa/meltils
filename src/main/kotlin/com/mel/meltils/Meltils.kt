@@ -1,12 +1,11 @@
-package com.desco.examplemod
+package com.mel.meltils
 
-import com.desco.examplemod.commands.ExampleCommand
-import com.desco.examplemod.core.Config
-import com.desco.examplemod.events.packet.PacketEvent
+import com.mel.meltils.commands.MeltilsCommand
+import com.mel.meltils.core.Config
+import com.mel.meltils.events.packet.PacketEvent
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.asCoroutineDispatcher
-import net.minecraft.client.Minecraft
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.event.FMLInitializationEvent
@@ -14,16 +13,16 @@ import java.util.concurrent.Executors
 import kotlin.coroutines.CoroutineContext
 
 @Mod(
-    modid = ExampleMod.MODID,
-    version = ExampleMod.VERSION,
-    name = ExampleMod.NAME,
+    modid = Meltils.MODID,
+    version = Meltils.VERSION,
+    name = Meltils.NAME,
     clientSideOnly = true,
     acceptedMinecraftVersions = "[1.8.9]",
     modLanguageAdapter = "gg.essential.api.utils.KotlinAdapter"
 )
-object ExampleMod: CoroutineScope {
-    const val NAME = "ExampleMod"
-    const val MODID = "examplemod"
+object Meltils: CoroutineScope {
+    const val NAME = "Meltils"
+    const val MODID = "meltils"
     const val VERSION = "1.0"
 
     override val coroutineContext: CoroutineContext = Executors.newFixedThreadPool(10).asCoroutineDispatcher() + SupervisorJob()
@@ -31,9 +30,7 @@ object ExampleMod: CoroutineScope {
     @Mod.EventHandler
     fun onInit(event: FMLInitializationEvent) {
         Config.preload()
-        ExampleCommand.register()
+        MeltilsCommand.register()
         MinecraftForge.EVENT_BUS.register(PacketEvent)
-
-
     }
 }

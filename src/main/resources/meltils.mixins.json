@@ -1,0 +1,10 @@
+{
+    "verbose": true,
+    "minVersion": "0.8.0",
+    "compatibilityLevel": "JAVA_8",
+    "package": "com.mel.meltils.mixins",
+    "refmap": "meltils.mixins.refmap.json",
+    "client": [
+        "FontRendererMixin"
+    ]
+}

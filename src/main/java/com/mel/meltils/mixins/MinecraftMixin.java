@@ -1,4 +1,4 @@
-package com.desco.examplemod.mixins;
+package com.mel.meltils.mixins;
 
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
